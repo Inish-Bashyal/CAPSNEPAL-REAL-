@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{%block body%}
+the mdas
+{% for i in data %}
+    {{i.name}}
+    <img src={{i.image}}>
+{% endfor %}
+{%endblock%}
