@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body%}
+<div class="title">
+    <h1><b>Shop with CAPS NEPAL 🇳🇵</b></h1>
+</div>
+
+<div class="flexboard col-lg-12">
+    <img class="fleximage" src="{% static 'images/flexBoard.png' %}" />
+
+</div>
+
+{% comment %} {% for cap in caps %}
+{{cap.name}}
+{% endfor %} {% endcomment %}
+<section class="Most-Viewed">
+    <div class="title2">
+        <h1><b>Most Viewed</b></h1>
+    </div>
+    <div class="flexboard2 col-lg-12" style="display:flex;">
+        
+        <div class="block col=lg-3">
+                <div class="image" style="height: 50%;">
+                    <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
+                </div>
+                <div class="actual-info-description">
+                    <div class="actual-info-desc-head-para">
+                            <h2>Caps</h2>
+                            <p>
+                            This is demo
+                            </p>
+                    </div>
+                    <div class="actual-info-desc-btn" style="width:50%">
+                            <button>Buy</button>
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="block col=lg-3">
+            <div class="image" style="height: 50%;">
+                <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
+            </div>
+            <div class="actual-info-description">
+                <div class="actual-info-desc-head-para">
+                        <h2>Caps</h2>
+                        <p>
+                        This is demo
+                        </p>
+                </div>
+                <div class="actual-info-desc-btn" style="width:50%">
+                        <button>Buy</button>
+                </div>
+            </div>
+    </div>
+
+    <div class="block col=lg-3">
+        <div class="image" style="height: 50%;">
+            <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
+        </div>
+        <div class="actual-info-description">
+            <div class="actual-info-desc-head-para">
+                    <h2>Caps</h2>
+                    <p>
+                    This is demo
+                    </p>
+            </div>
+            <div class="actual-info-desc-btn" style="width:50%">
+                    <button>Buy</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="block col=lg-3">
+        <div class="image" style="height: 50%;">
+            <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
+        </div>
+        <div class="actual-info-description">
+            <div class="actual-info-desc-head-para">
+                    <h2>Caps</h2>
+                    <p>
+                    This is demo
+                    </p>
+            </div>
+            <div class="actual-info-desc-btn" style="width:50%">
+                    <button>Buy</button>
+            </div>
+        </div>
+    </div>
+                
+    </div>
+</section>
+{%endblock%}
