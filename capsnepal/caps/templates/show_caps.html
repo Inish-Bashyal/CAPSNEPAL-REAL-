@@ -1,9 +1,28 @@
 {% extends 'base.html' %}
 
 {%block body%}
-the mdas
+
+{% load static %}
+
 {% for i in data %}
-    {{i.name}}
-    <img src={{i.image}}>
+<div class="block col=lg-3">
+    <div class="image" style="height: 50%;">
+        <img src={{i.image}} alt="Not Found" />
+    </div>
+    <div class="actual-info-description">
+        <div class="actual-info-desc-head-para">
+                <h2>{{i.name}}</h2>
+                <p>
+                    {{i.desc}}
+                </p>
+                <h3>{{i.price}}</h3>
+
+        </div>
+        <div class="actual-info-desc-btn" style="width:50%">
+                <button>Buy</button>
+        </div>
+    </div>
+</div>
 {% endfor %}
+
 {%endblock%}

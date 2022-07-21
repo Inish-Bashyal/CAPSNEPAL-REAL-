@@ -12,7 +12,6 @@
             <h2>Add Product</h2>
             <form action="create_caps" method="post" enctype="multipart/form-data" action="post">
                 {% csrf_token %}
-                <input name="data" type="text">
                 <div class="form form-group">
                     <label for="formFileLd" class="form-label">Upload Cap Photo</label>
                     <input class="form-control form-control-md" name="file" id="formFileLd" type="file"  style="width: 50%;"/>
