@@ -3,26 +3,27 @@
 {%block body%}
 
 {% load static %}
-<div class-"container">
-{% for i in data %}
-<div class="block col=lg-3">
-    <div class="image" style="height: 50%;">
-        <img src={{i.image}} alt="Not Found" />
-    </div>
-    <div class="actual-info-description">
-        <div class="actual-info-desc-head-para">
-                <h2>{{i.name}}</h2>
-                <p>
-                    {{i.desc}}
-                </p>
-                <h3>{{i.price}}</h3>
+<h1>Caps</h1>
+<div class-"content col-lg-12" style="display:flex;">
+        {% for i in data %}
+        <div class="block   col-lg-3">
+            <div class="image">
+                <img src={{i.image}} alt="Not Found"/>
+            </div>
+            <div class="actual-info-description">
+                <div class="actual-info-desc-head-para">
+                        <h2>{{i.name}}</h2>
+                        <p>
+                            {{i.desc}}
+                        </p>
+                        <h3>Price : {{i.price}}</h3>
 
+                </div>
+                <div class="actual-info-desc-btn" style="width:50%">
+                        <button class="btn btn-info">Buy</button>
+                </div>
+            </div>
         </div>
-        <div class="actual-info-desc-btn" style="width:50%">
-                <button>Buy</button>
-        </div>
-    </div>
-</div>
-{% endfor %}
+        {% endfor %}
 </div>
 {%endblock%}
