@@ -20,6 +20,18 @@ def register(request):
 def show_create_caps(request):
     return render(request,'create_caps.html',{})
 
+def most_viewed(request):
+    return render(request,'most_viewed.html',{})
+
+def best_seller(request):
+    return render(request,'best_seller.html',{})
+
+def latest_arrivals(request):
+    return render(request,'latest_arrivals.html',{})
+
+def custom_caps(request):
+    return render(request,'custom_caps.html',{})
+
 def create_caps(request):
     if request.method=="POST":
         name = request.POST.get('name')
