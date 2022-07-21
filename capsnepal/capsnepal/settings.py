@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'capsnepal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'capsnepal',
+        'NAME': 'CAPSNEPAL',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',

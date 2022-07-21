@@ -18,10 +18,15 @@
     margin-top: 10px;
     background-color: #111;
     border-color: #111;
+    color: white;
 
 
 }
+.header a{
+    color: white;
+    background-color: #111;
 
+}
 .right-header{
     display: flex;
     
