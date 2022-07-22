@@ -4,26 +4,25 @@
 
 {% load static %}
 <h1>Caps</h1>
-<div class-"content col-lg-12" style="display:flex;">
+<div class-"content col-lg-12" id="divmax">
         {% for i in data %}
-        <div class="block   col-lg-3">
-            <div class="image">
-                <img src={{i.image}} alt="Not Found"/>
-            </div>
-            <div class="actual-info-description">
-                <div class="actual-info-desc-head-para">
-                        <h2>{{i.name}}</h2>
+        <div class="card col-lg-3 col-md-3 p-5 m-5">
+            <img src={{i.image}} alt="Not Found" width="250vw" height="200px"/>
+            <div class="actual-info-descriptioncol-12" >
+                <div class="actual-info-desc-head-para col-7">
+                        <h4>{{i.name}}</h4>
                         <p>
                             {{i.desc}}
                         </p>
-                        <h3>Price : {{i.price}}</h3>
+                        <h5>Price : {{i.price}}</h5>
 
                 </div>
-                <div class="actual-info-desc-btn" style="width:50%">
+                <div class="actual-info-desc-btn col-5">
                         <button class="btn btn-info">Buy</button>
                 </div>
             </div>
         </div>
+
         {% endfor %}
 </div>
 {%endblock%}
