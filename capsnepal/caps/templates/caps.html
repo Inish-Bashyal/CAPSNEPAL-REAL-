@@ -5,90 +5,25 @@
 <div class="title">
     <h1><b>Shop with CAPS NEPAL 🇳🇵</b></h1>
 </div>
-
-<div class="flexboard col-lg-12">
-    <img class="fleximage" src="{% static 'images/flexBoard.png' %}" />
-
-</div>
-
-{% comment %} {% for cap in caps %}
-{{cap.name}}
-{% endfor %} {% endcomment %}
-<section class="Most-Viewed">
-    <div class="title2">
-        <h1><b>Most Viewed</b></h1>
-    </div>
-    <div class="flexboard2 col-lg-12" style="display:flex;">
-        
-        <div class="block col=lg-3">
-                <div class="image" style="height: 50%;">
-                    <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
-                </div>
-                <div class="actual-info-description">
-                    <div class="actual-info-desc-head-para">
-                            <h2>Caps</h2>
-                            <p>
-                            This is demo
-                            </p>
-                    </div>
-                    <div class="actual-info-desc-btn" style="width:50%">
-                            <button>Buy</button>
-                    </div>
-                </div>
-        </div>
-
-
-        <div class="block col=lg-3">
-            <div class="image" style="height: 50%;">
-                <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
-            </div>
-            <div class="actual-info-description">
-                <div class="actual-info-desc-head-para">
-                        <h2>Caps</h2>
+<div class-"content col-lg-12" id="divmax">
+        {% for i in data %}
+        <div class="card col-lg-3 col-md-3 p-5 m-5">
+            <img src={{i.image}} alt="Not Found" width="250vw" height="200px"/>
+            <div class="actual-info-descriptioncol-12" >
+                <div class="actual-info-desc-head-para col-7">
+                        <h4>{{i.name}}</h4>
                         <p>
-                        This is demo
+                            {{i.desc}}
                         </p>
-                </div>
-                <div class="actual-info-desc-btn" style="width:50%">
-                        <button>Buy</button>
-                </div>
-            </div>
-    </div>
+                        <h5>Price : {{i.price}}</h5>
 
-    <div class="block col=lg-3">
-        <div class="image" style="height: 50%;">
-            <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
-        </div>
-        <div class="actual-info-description">
-            <div class="actual-info-desc-head-para">
-                    <h2>Caps</h2>
-                    <p>
-                    This is demo
-                    </p>
-            </div>
-            <div class="actual-info-desc-btn" style="width:50%">
-                    <button>Buy</button>
+                </div>
+                <div class="actual-info-desc-btn col-5">
+                        <button class="btn btn-info">Buy</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="block col=lg-3">
-        <div class="image" style="height: 50%;">
-            <img src="{% static 'images/logo.jpg' %}" alt="Not Found" />
-        </div>
-        <div class="actual-info-description">
-            <div class="actual-info-desc-head-para">
-                    <h2>Caps</h2>
-                    <p>
-                    This is demo
-                    </p>
-            </div>
-            <div class="actual-info-desc-btn" style="width:50%">
-                    <button>Buy</button>
-            </div>
-        </div>
-    </div>
-                
-    </div>
-</section>
+        {% endfor %}
+</div>
 {%endblock%}

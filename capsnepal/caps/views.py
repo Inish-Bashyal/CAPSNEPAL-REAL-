@@ -5,8 +5,7 @@ from caps.models import Cap
 # Create your views here.
 def index(request):
     caps = Cap.objects.all()
-    return render(request, 'caps.html', {'caps':caps})
-
+    return render(request, 'caps.html', {'data':caps})
 def about(request):
     return render(request, 'about.html', {})
 
@@ -54,5 +53,5 @@ def show_caps(request,id=None):
             return render(request, 'show_caps.html', {'data':cap})
         caps = Cap.objects.all()
         return render(request, 'show_caps.html', {'data':caps})
-    return render(request,'create_caps.html', {'message':'problem storing the data'})
+    return render(request,'create_caps.html', {'message':'problem fetching the data'})
 

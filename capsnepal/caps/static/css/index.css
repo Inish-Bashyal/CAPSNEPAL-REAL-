@@ -107,6 +107,8 @@ footer{
 	font-size:12px;
     display: flex;
     width: auto;
+    bottom:0;
+
 }
 .footer
 {
