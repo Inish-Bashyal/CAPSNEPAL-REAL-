@@ -16,6 +16,8 @@ urlpatterns = [
     path("most_viewed",views.most_viewed, name='most_viewed'),
     path("best_seller",views.best_seller, name='best_seller'),
     path("latest_arrivals",views.latest_arrivals, name='latest_arrivals'),
-    path("custom_caps",views.custom_caps, name='custom_caps')
+    path("custom_caps",views.custom_caps, name='custom_caps'),
+    path("update_cap/<id>",views.show_cap_details, name='update_cap'),
+    # path("show_cap_details",views.show_create_caps, name='show_cap_details'),
 
 ]

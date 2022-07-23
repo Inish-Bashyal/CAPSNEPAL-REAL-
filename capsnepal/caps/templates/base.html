@@ -53,8 +53,20 @@
 
                 <button class="search_btn btn btn-secondary">Search</button>
                 <button class="reset_btn btn btn-danger">Reset</button>
+                {% if user.is_authenticated%}
+                <button class="login_btn btn btn-success"><a href={% url 'show_user_details' %}>{{user.username}}</a></button>
+                {%else%}
                 <button class="login_btn btn btn-success"><a href={% url 'login' %}>Login</a></button>
+                {%endif%}
 
+                {% if user.is_authenticated%}
+                <button class="logout_btn btn btn-success"><a href={% url 'logout' %}>Log Out</a></button>
+                {%endif%}
+
+
+                {% if user.is_authenticated%}
+                <button class="delete_btn btn btn-success"><a href="delete_user/{{user.id}}">Delete User</a></button>
+                {%endif%}
             </div>
           </nav>
 
@@ -67,37 +79,33 @@ this is body
 
 {% block footer%}
 <div class="footer col-lg-12">
-    <div class="left-left-footer col-lg-3"></div>
-        <div class="left-footer col-lg-3">
+
+    <div class="left-footer">
+        <div class="copyright">
+            &copy;2022 <strong class="footer-logo" style="color: gold;">  Caps Nepal</strong>
+            <div>We make custom and high quality caps <a href="#" style="color: #fff;">capsnepal.com</a></div>
+                
+        </div>
+    </div>
     
-                <div class="copyright">
-                    &copy;2022 <strong class="footer-logo" style="color: #fff;">  Caps Nepal</strong>
-                    <div>We make custom and high quality caps <a href="#" style="color: #fff;">capsnepal.com</a></div>
-                        
-                </div>
+    
+    <div class="middle-footer">
+                <h5 class="heading-1">Support:</h5>
             
-        </div>
-            
-        <div class="middle-footer col-lg-3">
-                        <h5 class="heading-1">Support:</h5>
-                    
-                        <ul class="footer-list">
-                        <li><a href="#">Youtube</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>         
-                        </ul>
-        </div>
+                <ul class="footer-list">
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>         
+                </ul>
+    </div>
 
-        <div class="right-footer col-lg-1" style="float: left;">
-            <ul class="social-list">
-                <li><a href="#"><img src="{% static 'images/social-icon-1.png' %}"></a></li>
-                <li><a href="https://www.facebook.com/caps.nepal.77"><img src="{% static 'images/social-icon-2.png' %}"></a></li>
-                <li><a href="https://www.instagram.com/_caps_nepal01/"><img src="{% static 'images/social-icon-3.png' %}"></a></li>
-            </ul>
-        </div>
-
-        <div class="right-right-footer col-lg-2">
-        </div>
+    <div class="right-footer" style="float: left;">
+    <ul class="social-list">
+        <li><a href="#"><img src="{% static 'images/social-icon-1.png' %}"></a></li>
+        <li><a href="https://www.facebook.com/caps.nepal.77"><img src="{% static 'images/social-icon-2.png' %}"></a></li>
+        <li><a href="https://www.instagram.com/_caps_nepal01/"><img src="{% static 'images/social-icon-3.png' %}"></a></li>
+    </ul>
+    </div>
 
 </div>
 </div>

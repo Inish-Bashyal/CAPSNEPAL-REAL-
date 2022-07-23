@@ -96,7 +96,21 @@ footer{
 {
 	background:url('../images/body-bg.gif');
 	padding:0 20px 30px 20px;
+    bottom: 0px;
     margin-top: 1cm;
+    display: flex;
+}
+
+.left-footer{
+    margin-left: 300px;
+}
+
+.middle-footer{
+    margin-left: 100px;
+}
+
+.right-footer{
+    margin-left: 100px;
 }
 .copyright{
 	padding:5px 0 0 0;

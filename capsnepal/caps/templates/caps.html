@@ -18,8 +18,12 @@
                         <h5>Price : {{i.price}}</h5>
 
                 </div>
-                <div class="actual-info-desc-btn col-5">
+                <div class="actual-info-desc-btn col-5" style="display:flex;">
                         <button class="btn btn-info">Buy</button>
+                        {% if user.is_superuser%}
+                        <button class="btn btn-info"><a href="update_cap/{{i.id}}">Update</a></button>
+                        {%endif%}
+
                 </div>
             </div>
         </div>

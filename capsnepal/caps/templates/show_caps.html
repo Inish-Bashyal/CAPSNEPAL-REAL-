@@ -19,6 +19,10 @@
                 </div>
                 <div class="actual-info-desc-btn col-5">
                         <button class="btn btn-info">Buy</button>
+                        {% if user.is_superuser%}
+                        <button class="btn btn-info"><a href="update_cap/{{i.id}}">Update</a></button>
+                        {%endif%}
+
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ from caps.models import Cap
 def index(request):
     caps = Cap.objects.all()
     return render(request, 'caps.html', {'data':caps})
+
 def about(request):
     return render(request, 'about.html', {})
 
@@ -55,3 +56,8 @@ def show_caps(request,id=None):
         return render(request, 'show_caps.html', {'data':caps})
     return render(request,'create_caps.html', {'message':'problem fetching the data'})
 
+
+def show_cap_details(request, id):
+    cap = Cap.objects.get(id=id)
+
+    return render(request, "update_cap.html", {'cap':cap})
