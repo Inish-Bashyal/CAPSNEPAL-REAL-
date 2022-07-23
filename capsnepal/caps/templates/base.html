@@ -18,49 +18,45 @@
 
 <div class="container-fluid" style=" padding-right: 0px; padding-left: 0px;margin-right: auto;margin-left: auto;">
     <div class="header">
-        <div class="left-header col-lg-6">
-            
-            <div class="navbar">
-                <div class="logo">
-                    <img class="img-circle" src="{% static 'images/logo.jpg' %}" />
-                </div>
-           
-                    <button type="button nav-item" class="btn btn-primary"><a href={% url 'home' %}>Home</a></button>
+        <nav class="navbar col-lg-12">
+            <div class="logo">
+                <img class="img-circle" src="{% static 'images/logo.jpg' %}" />
+            </div>
+       
+                <button type="button" class="home_btn btn btn-primary" style="background-color: #111; border-color: #111;">
+                    <a href={% url 'home' %} style="color: white; text-decoration: none;">Home</a></button>
 
+
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Featured</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href={% url 'most_viewed' %}>Most Viewed</a> 
+                            <a class="dropdown-item" href={% url 'best_seller' %}>Best Seller</a>
+                            <a class="dropdown-item"href={% url 'latest_arrivals' %}>Latest Arrivals</a>
+                        </div>
+                </div>  
+                
 
                     <div class="dropdown">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Featured</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Custom</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href={% url 'most_viewed' %} style="color:black;">Most Viewed</a> 
-                                <a class="dropdown-item" href={% url 'best_seller' %} style="color:black;">Best Seller</a>
-                                <a class="dropdown-item"href={% url 'latest_arrivals' %} style="color:black;">Latest Arrivals</a>
+                                <a class="dropdown-item" href={% url 'custom_caps' %}>Our Custom Caps</a> 
                             </div>
-                    </div>  
-                    
+                    </div>
 
+                    <button type="button" class="home_btn btn btn-primary" style="background-color: #111; border-color: #111;">
+                        <a href={% url 'about' %} style="color: white; text-decoration: none;">About</a></button>
 
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Custom</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href={% url 'custom_caps' %} style="color:black;">Our Custom Caps</a> 
-                                </div>
-                        </div>
+              <form class="form">
+                <input type="text" id="search" class="form-control form-control-lg nav-item" placeholder="Search for Caps" />
+            </form>
 
-                        <button type="button nav-item" class="btn btn-primary"><a href={% url 'about' %}>About Us</a></button>
-
-            </div>
-        </div>
-
-        <div class="right-header col-lg-6">
-            <div class="navbar">
-                <input type="text" id="search" class="form-control form-control-lg" placeholder="Search for Caps" />
                 <button class="search_btn btn btn-secondary">Search</button>
-                    <button class="reset_btn btn btn-danger">Reset</button>
-                    <button class="login_btn btn btn-success"><a href={% url 'login' %}>Login</a></button>
+                <button class="reset_btn btn btn-danger">Reset</button>
+                <button class="login_btn btn btn-success"><a href={% url 'login' %}>Login</a></button>
 
             </div>
-
-        </div>
+          </nav>
 
     </div>
 {% endblock %}
