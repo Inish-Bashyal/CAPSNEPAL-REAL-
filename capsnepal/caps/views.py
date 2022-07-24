@@ -17,9 +17,6 @@ def login(request):
 def register(request):
     return render(request,'register.html',{})
 
-def show_create_caps(request):
-    return render(request,'create_caps.html',{})
-
 def most_viewed(request):
     return render(request,'most_viewed.html',{})
 
@@ -57,7 +54,22 @@ def show_caps(request,id=None):
     return render(request,'create_caps.html', {'message':'problem fetching the data'})
 
 
-def show_cap_details(request, id):
+def cap_details(request, id):
     cap = Cap.objects.get(id=id)
 
-    return render(request, "update_cap.html", {'cap':cap})
+    return render(request, "cap_details.html", {'cap':cap})
+
+def update_cap(request,id):
+    cap = Cap.objects.get(id=id)
+    if request.method=="POST":
+        cap.name = request.POST['name']
+        cap.image = request.POST['image']
+        cap.desc = request.POST['desc']
+        cap.price =request.POST['price']
+        cap.save()
+    return redirect(cap_details) 
+
+def delete_cap(request,id):
+    cap = Cap.objects.get(id=id).delete()
+    return redirect(index)
+     
