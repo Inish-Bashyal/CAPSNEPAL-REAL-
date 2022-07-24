@@ -1,6 +1,9 @@
 import re
 from django.shortcuts import redirect, render,HttpResponse
-from caps.models import Cap
+from pyrsistent import b
+from caps.models import Cap, Order
+from users.models import CustomUser
+
 
 # Create your views here.
 def index(request):
@@ -30,7 +33,7 @@ def custom_caps(request):
     return render(request,'custom_caps.html',{})
 
 def create_caps(request):
-    if request.method=="POST":
+    if request.method=="POST" :
         name = request.POST.get('name')
         description = request.POST.get('description')
         price = request.POST.get('price')
@@ -63,13 +66,36 @@ def update_cap(request,id):
     cap = Cap.objects.get(id=id)
     if request.method=="POST":
         cap.name = request.POST['name']
-        cap.image = request.POST['image']
+        get_pictures = request.FILES.get('file')
+        cap.image = get_pictures
         cap.desc = request.POST['desc']
         cap.price =request.POST['price']
         cap.save()
-    return redirect(cap_details) 
+    return redirect(cap_details,id=id) 
 
 def delete_cap(request,id):
     cap = Cap.objects.get(id=id).delete()
     return redirect(index)
-     
+    
+def create_order(request,id):
+    if request.method=="POST":
+        cap = Cap.objects.get(id=id)
+        id  = request.user.id
+        user = CustomUser.objects.get(id=id)
+        quantity = request.POST['quantity']
+        total_price = int(quantity) * cap.price
+        model = Order(cap=cap,user=user,total_price=total_price,quantity=quantity)
+        model.save()
+        return redirect(index)
+    
+    return render(request,'caps.html', {'message':'Problem placing the order'})
+
+def cart(request):
+    order = Order.objects.filter(user=request.user)
+    sum = 0
+    for i in order:
+        sum+=i.total_price
+    return render(request,'cart.html', {'orders':order, 'length':len(order),'sum':sum})
+
+def proceed_payment(request):
+    return HttpResponse("Your Request Has Been Submitted.... It will be deliver in two days")

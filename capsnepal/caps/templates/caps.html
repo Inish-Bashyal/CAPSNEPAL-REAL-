@@ -25,9 +25,14 @@
                 </div>
 
                 {%else%}
+                <form action="create_order/{{i.id}}" method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+
                 <div class="actual-info-desc-btn col-5" style="display:flex;">
-                    <button class="btn btn-info">Buy</button>
+                    <button class="btn btn-info" type="submit">Buy</button>
+                    <input id="form1" min="1" name="quantity" value="1" type="number"class="form-control form-control-sm" style="margin-left:10px;" />                
                 </div>
+                </form>
                 {%endif%}
 
 

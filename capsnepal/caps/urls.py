@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from caps import views
-from caps.views import about
+from caps.views import about,update_cap
 
 
 urlpatterns = [
@@ -17,7 +17,10 @@ urlpatterns = [
     path("latest_arrivals",views.latest_arrivals, name='latest_arrivals'),
     path("custom_caps",views.custom_caps, name='custom_caps'),
     path("cap_details/<id>",views.cap_details, name='cap_details'),
-    path("update_cap/<id>",views.update_cap, name='update_cap'),
+    path("cap_details/update_cap/<id>",views.update_cap, name='update_cap'),
     path("delete_cap/<id>",views.delete_cap, name='delete_cap'),
+    path("create_order/<id>",views.create_order, name='create_order'),
+    path("cart",views.cart, name='cart'),
+    path("proceed_payment",views.proceed_payment,name='proceed_payment')
 
 ]
