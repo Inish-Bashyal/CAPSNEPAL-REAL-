@@ -18,14 +18,19 @@
                         <h5>Price : {{i.price}}</h5>
 
                 </div>
+                {% if user.is_superuser%}
                 <div class="actual-info-desc-btn col-5" style="display:flex;">
-                        <button class="btn btn-info">Buy</button>
-                        {% if user.is_superuser%}
-                        <button class="btn btn-info" style="margin-left:50px;"><a href="cap_details/{{i.id}}" style="color:white;">Update</a></button>
+                        <button class="btn btn-info"><a href="cap_details/{{i.id}}" style="color:white;">Update</a></button>
                         <button class="btn btn-danger" style="margin-left:50px;"><a href="delete_cap/{{i.id}}" style="color:white;">Delete</a></button>
-                        {%endif%}
-
                 </div>
+
+                {%else%}
+                <div class="actual-info-desc-btn col-5" style="display:flex;">
+                    <button class="btn btn-info">Buy</button>
+                </div>
+                {%endif%}
+
+
             </div>
         </div>
 
