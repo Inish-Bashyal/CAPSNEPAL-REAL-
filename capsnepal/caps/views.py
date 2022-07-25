@@ -21,29 +21,30 @@ def register(request):
     return render(request,'register.html',{})
 
 def most_viewed(request):
-    return render(request,'most_viewed.html',{})
+    caps = Cap.objects.all()
+    return render(request, 'most_viewed.html', {'data':caps})
 
 def best_seller(request):
-    return render(request,'best_seller.html',{})
+    caps = Cap.objects.all()
+    return render(request, 'best_seller.html', {'data':caps})
 
 def latest_arrivals(request):
-    return render(request,'latest_arrivals.html',{})
-
-def custom_caps(request):
-    return render(request,'custom_caps.html',{})
+    caps = Cap.objects.all()
+    return render(request, 'latest_arrivals.html', {'data':caps})
 
 def create_caps(request):
-    if request.method=="POST" :
-        name = request.POST.get('name')
-        description = request.POST.get('description')
-        price = request.POST.get('price')
-        get_pictures = request.FILES.get('file')
-        model = Cap(name=name, image=get_pictures, desc=description,
-            price=price)
-        model.save()
-        return render(request, 'create_caps.html', {'message':"data is stored successfully"})
+    if request.user.is_superuser:
+        if request.method=="POST" :
+            name = request.POST.get('name')
+            description = request.POST.get('description')
+            price = request.POST.get('price')
+            get_pictures = request.FILES.get('file')
+            model = Cap(name=name, image=get_pictures, desc=description,
+                price=price)
+            model.save()
+            return render(request, 'create_caps.html', {'message':"data is stored successfully"})
     
-    return render(request,'create_caps.html', {'message':'problem storing the data'})
+        return render(request,'create_caps.html', {'message':'problem storing the data'})
 
 
 
@@ -63,15 +64,16 @@ def cap_details(request, id):
     return render(request, "cap_details.html", {'cap':cap})
 
 def update_cap(request,id):
-    cap = Cap.objects.get(id=id)
-    if request.method=="POST":
-        cap.name = request.POST['name']
-        get_pictures = request.FILES.get('file')
-        cap.image = get_pictures
-        cap.desc = request.POST['desc']
-        cap.price =request.POST['price']
-        cap.save()
-    return redirect(cap_details,id=id) 
+    if request.user.is_superuser:
+        cap = Cap.objects.get(id=id)
+        if request.method=="POST":
+            cap.name = request.POST['name']
+            get_pictures = request.FILES.get('file')
+            cap.image = get_pictures
+            cap.desc = request.POST['desc']
+            cap.price =request.POST['price']
+            cap.save()
+        return redirect(cap_details,id=id) 
 
 def delete_cap(request,id):
     cap = Cap.objects.get(id=id).delete()

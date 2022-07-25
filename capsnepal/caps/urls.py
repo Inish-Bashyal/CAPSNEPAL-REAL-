@@ -15,7 +15,6 @@ urlpatterns = [
     path("most_viewed",views.most_viewed, name='most_viewed'),
     path("best_seller",views.best_seller, name='best_seller'),
     path("latest_arrivals",views.latest_arrivals, name='latest_arrivals'),
-    path("custom_caps",views.custom_caps, name='custom_caps'),
     path("cap_details/<id>",views.cap_details, name='cap_details'),
     path("cap_details/update_cap/<id>",views.update_cap, name='update_cap'),
     path("delete_cap/<id>",views.delete_cap, name='delete_cap'),
